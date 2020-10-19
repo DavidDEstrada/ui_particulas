@@ -14,9 +14,9 @@ class Swarm:
         for particula in self.__swarm:
             print(particula)
 
-l01 = Particula(iid = 1, origen_x = 2, origen_y = 3, destino_x = 4, destino_y = 5, velocidad = 6, 
+p01 = Particula(iid = 1, origen_x = 2, origen_y = 3, destino_x = 4, destino_y = 5, velocidad = 6, 
     red = 7, green = 8, blue = 9)
-l02 = Particula(22,33,44,55,66,77,222,233,224)
+p02 = Particula(22,33,44,55,66,77,222,233,224)
 
 swarm = Swarm()
 
