@@ -13,14 +13,10 @@ class Swarm:
     def mostrar(self):
         for particula in self.__swarm:
             print(particula)
+    
+    def __str__(self):
+        return "".join (
 
-p01 = Particula(iid = 1, origen_x = 2, origen_y = 3, destino_x = 4, destino_y = 5, velocidad = 6, 
-    red = 7, green = 8, blue = 9)
-p02 = Particula(22,33,44,55,66,77,222,233,224)
+            str(particula) + "\n" for particula in self.__swarm
 
-swarm = Swarm()
-
-swarm.agregar_final(l01)
-swarm.agregar_inicio(l02)
-swarm.agregar_inicio(l01)
-swarm.mostrar()
+        )
