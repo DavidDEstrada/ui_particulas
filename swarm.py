@@ -1,4 +1,5 @@
 from particula import Particula
+import json
 
 class Swarm:
     def __init__(self):
@@ -18,5 +19,22 @@ class Swarm:
         return "".join (
 
             str(particula) + "\n" for particula in self.__swarm
-
         )
+    def guardar(self, ubicacion):
+        try:
+            with open(ubicacion, 'w') as archivo:
+                lista = [particula.to_dict() for particula in self.__swarm]
+                print(lista)
+                json.dump(lista, archivo, indent=5)
+            return 1
+        except:
+            return 0
+    
+    def abrir(self, ubicacion):
+        try:
+            with open(ubicacion, 'r') as archivo:
+                lista = json.load(archivo)
+                self.__swarm = [Particula(**particula) for particula in lista]
+            return 1
+        except:
+            return 0
