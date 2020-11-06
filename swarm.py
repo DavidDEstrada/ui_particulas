@@ -20,6 +20,21 @@ class Swarm:
 
             str(particula) + "\n" for particula in self.__swarm
         )
+    def __len__(self):
+        return len(self.__swarm)
+    
+    def __iter__(self):
+        self.cont = 0
+        return self
+
+    def __next__(self):
+        if self.cont < len(self.__swarm):
+            particula = self.__swarm[self.cont]
+            self.cont += 1
+            return particula
+        else:
+            raise StopIteration
+
     def guardar(self, ubicacion):
         try:
             with open(ubicacion, 'w') as archivo:
