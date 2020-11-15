@@ -191,6 +191,26 @@ class Ui_MainWindow(object):
         self.gridLayout_5.addWidget(self.mostrar_tabla_pushButton, 1, 2, 1, 1)
 
         self.tabWidget.addTab(self.tab_2, "")
+        self.tab_3 = QWidget()
+        self.tab_3.setObjectName(u"tab_3")
+        self.gridLayout_6 = QGridLayout(self.tab_3)
+        self.gridLayout_6.setObjectName(u"gridLayout_6")
+        self.graphicsView = QGraphicsView(self.tab_3)
+        self.graphicsView.setObjectName(u"graphicsView")
+
+        self.gridLayout_6.addWidget(self.graphicsView, 0, 0, 1, 2)
+
+        self.dibujar_pushButton = QPushButton(self.tab_3)
+        self.dibujar_pushButton.setObjectName(u"dibujar_pushButton")
+
+        self.gridLayout_6.addWidget(self.dibujar_pushButton, 1, 0, 1, 1)
+
+        self.limpiar_pushButton = QPushButton(self.tab_3)
+        self.limpiar_pushButton.setObjectName(u"limpiar_pushButton")
+
+        self.gridLayout_6.addWidget(self.limpiar_pushButton, 1, 1, 1, 1)
+
+        self.tabWidget.addTab(self.tab_3, "")
 
         self.gridLayout_2.addWidget(self.tabWidget, 0, 0, 1, 1)
 
@@ -211,7 +231,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.tabWidget.setCurrentIndex(1)
+        self.tabWidget.setCurrentIndex(2)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -246,6 +266,9 @@ class Ui_MainWindow(object):
         self.buscar_pushButton.setText(QCoreApplication.translate("MainWindow", u"Buscar", None))
         self.mostrar_tabla_pushButton.setText(QCoreApplication.translate("MainWindow", u"Mostrar", None))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), QCoreApplication.translate("MainWindow", u"Tabla", None))
+        self.dibujar_pushButton.setText(QCoreApplication.translate("MainWindow", u"Dibujar", None))
+        self.limpiar_pushButton.setText(QCoreApplication.translate("MainWindow", u"Limpiar", None))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_3), QCoreApplication.translate("MainWindow", u"Dibujar", None))
         self.menuArchivo.setTitle(QCoreApplication.translate("MainWindow", u"Archivo", None))
     # retranslateUi
 
