@@ -1,9 +1,23 @@
 from particula import Particula
 import json
 
+
+def ordenar_by_distancia(particula):
+        return particula.distancia
+
+
 class Swarm:
     def __init__(self):
         self.__swarm = []
+    
+    def ordenar_id(self):
+        self.__swarm.sort()
+    
+    def ordenar_distancia(self):
+        self.__swarm.sort(key= ordenar_by_distancia, reverse=True)
+    
+    def ordenar_velocidad(self):
+        self.__swarm.sort(key= lambda particula: particula.velocidad)
 
     def agregar_final(self, particula:Particula):
         self.__swarm.append(particula)
