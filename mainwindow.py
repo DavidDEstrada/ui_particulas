@@ -33,13 +33,19 @@ class MainWindow (QMainWindow):
 
     @Slot()
     def action_ordenar_id(self):
-        self.swarm.ordenar_id()
+        self.swarm.ordenar_id()   
+        self.mostrar_tabla()
+        self.click_mostrar()
     @Slot()
     def action_ordenar_distancia(self):
         self.swarm.ordenar_distancia()
+        self.mostrar_tabla()
+        self.click_mostrar()
     @Slot()
     def action_ordenar_velocidad(self):
-        self.swarm.ordenar_velocidad()  
+        self.swarm.ordenar_velocidad() 
+        self.mostrar_tabla()
+        self.click_mostrar()
 
     def wheelEvent(self, event):
         if event.delta() > 0:
