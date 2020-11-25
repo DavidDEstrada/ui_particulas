@@ -173,6 +173,9 @@ class MainWindow (QMainWindow):
                 "Error",
                 "Error al abrir el archivo" + ubicacion
             )
+            
+        self.mostrar_tabla()
+        self.click_mostrar()
 
     @Slot()
     def action_guardar_archivo(self):
