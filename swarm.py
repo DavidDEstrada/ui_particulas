@@ -1,6 +1,6 @@
 from particula import Particula
 import json
-
+from pprint import pformat
 
 def ordenar_by_distancia(particula):
         return particula.distancia
@@ -67,3 +67,30 @@ class Swarm:
             return 1
         except:
             return 0
+    
+    def crear_grafo(self):
+        d = {} 
+        for particula in self.__swarm: 
+                    
+            origen = particula.origen_x, particula.origen_y
+            destino = particula.destino_x, particula.destino_y
+            distancia = particula.distancia
+
+            arista_o_d = (destino, distancia)
+            arista_d_o = (origen, distancia)
+
+            if origen in d:
+                d[origen].append(arista_o_d)
+            else:
+                d[origen] = [arista_o_d]
+            if destino in d:
+                d[destino].append(arista_d_o)
+            else:
+                d[destino] = [arista_d_o]
+            
+        return d
+    
+    def ver_grafos(self):
+                d = self.crear_grafo()
+                grafo = pformat(d, width=40, indent=1)
+                return grafo

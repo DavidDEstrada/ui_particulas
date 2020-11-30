@@ -28,6 +28,10 @@ class Ui_MainWindow(object):
         self.actionDistancia.setObjectName(u"actionDistancia")
         self.actionVelocidad = QAction(MainWindow)
         self.actionVelocidad.setObjectName(u"actionVelocidad")
+        self.ver_grafos_action = QAction(MainWindow)
+        self.ver_grafos_action.setObjectName(u"ver_grafos_action")
+        self.actionGuardar_Grafos = QAction(MainWindow)
+        self.actionGuardar_Grafos.setObjectName(u"actionGuardar_Grafos")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.gridLayout_2 = QGridLayout(self.centralwidget)
@@ -228,6 +232,8 @@ class Ui_MainWindow(object):
         self.menuArchivo.setObjectName(u"menuArchivo")
         self.menuOrdenar_por = QMenu(self.menubar)
         self.menuOrdenar_por.setObjectName(u"menuOrdenar_por")
+        self.menuver = QMenu(self.menubar)
+        self.menuver.setObjectName(u"menuver")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QStatusBar(MainWindow)
         self.statusbar.setObjectName(u"statusbar")
@@ -235,15 +241,17 @@ class Ui_MainWindow(object):
 
         self.menubar.addAction(self.menuArchivo.menuAction())
         self.menubar.addAction(self.menuOrdenar_por.menuAction())
+        self.menubar.addAction(self.menuver.menuAction())
         self.menuArchivo.addAction(self.actionAbrir)
         self.menuArchivo.addAction(self.actionGuardar)
         self.menuOrdenar_por.addAction(self.actionId)
         self.menuOrdenar_por.addAction(self.actionDistancia)
         self.menuOrdenar_por.addAction(self.actionVelocidad)
+        self.menuver.addAction(self.ver_grafos_action)
 
         self.retranslateUi(MainWindow)
 
-        self.tabWidget.setCurrentIndex(1)
+        self.tabWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -262,6 +270,11 @@ class Ui_MainWindow(object):
         self.actionId.setText(QCoreApplication.translate("MainWindow", u"Id", None))
         self.actionDistancia.setText(QCoreApplication.translate("MainWindow", u"Distancia", None))
         self.actionVelocidad.setText(QCoreApplication.translate("MainWindow", u"Velocidad", None))
+        self.ver_grafos_action.setText(QCoreApplication.translate("MainWindow", u"Grafos", None))
+#if QT_CONFIG(shortcut)
+        self.ver_grafos_action.setShortcut(QCoreApplication.translate("MainWindow", u"Ctrl+G", None))
+#endif // QT_CONFIG(shortcut)
+        self.actionGuardar_Grafos.setText(QCoreApplication.translate("MainWindow", u"Guardar Grafos", None))
         self.groupBox.setTitle(QCoreApplication.translate("MainWindow", u"Particula", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"Origen en y", None))
         self.label_5.setText(QCoreApplication.translate("MainWindow", u"Destino en y", None))
@@ -286,5 +299,6 @@ class Ui_MainWindow(object):
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_3), QCoreApplication.translate("MainWindow", u"Dibujar", None))
         self.menuArchivo.setTitle(QCoreApplication.translate("MainWindow", u"Archivo", None))
         self.menuOrdenar_por.setTitle(QCoreApplication.translate("MainWindow", u"Ordenar por", None))
+        self.menuver.setTitle(QCoreApplication.translate("MainWindow", u"Ver", None))
     # retranslateUi
 

@@ -18,7 +18,7 @@
     <item row="0" column="0">
      <widget class="QTabWidget" name="tabWidget">
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -278,8 +278,15 @@
     <addaction name="actionDistancia"/>
     <addaction name="actionVelocidad"/>
    </widget>
+   <widget class="QMenu" name="menuver">
+    <property name="title">
+     <string>Ver</string>
+    </property>
+    <addaction name="ver_grafos_action"/>
+   </widget>
    <addaction name="menuArchivo"/>
    <addaction name="menuOrdenar_por"/>
+   <addaction name="menuver"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionAbrir">
@@ -311,6 +318,19 @@
   <action name="actionVelocidad">
    <property name="text">
     <string>Velocidad</string>
+   </property>
+  </action>
+  <action name="ver_grafos_action">
+   <property name="text">
+    <string>Grafos</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+G</string>
+   </property>
+  </action>
+  <action name="actionGuardar_Grafos">
+   <property name="text">
+    <string>Guardar Grafos</string>
    </property>
   </action>
  </widget>

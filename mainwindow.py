@@ -4,6 +4,7 @@ from PySide2.QtGui import QPen, QColor, QTransform
 from ui_mainwindow import Ui_MainWindow
 from particula import Particula
 from swarm import Swarm
+from pprint import pformat, pprint
 
 class MainWindow (QMainWindow):
     def __init__(self):
@@ -18,6 +19,8 @@ class MainWindow (QMainWindow):
         self.ui.actionAbrir.triggered.connect(self.action_abrir_archivo)
         self.ui.actionGuardar.triggered.connect(self.action_guardar_archivo)
 
+        self.ui.ver_grafos_action.triggered.connect(self.grafos)
+
         self.ui.actionId.triggered.connect(self.action_ordenar_id)
         self.ui.actionDistancia.triggered.connect(self.action_ordenar_distancia)
         self.ui.actionVelocidad.triggered.connect(self.action_ordenar_velocidad)
@@ -30,7 +33,12 @@ class MainWindow (QMainWindow):
         self.scene = QGraphicsScene()
         self.ui.graphicsView.setScene(self.scene)
     
-
+    @Slot()
+    def grafos(self):
+        
+        self.ui.salida.clear()
+        self.ui.salida.insertPlainText(self.swarm.ver_grafos())
+        print(self.swarm.ver_grafos())
     @Slot()
     def action_ordenar_id(self):
         self.swarm.ordenar_id()   
@@ -198,8 +206,6 @@ class MainWindow (QMainWindow):
                 "Error",
                 "No se pudo crear el archivo " + ubicacion
             )
-
-
     @Slot()
     def click_mostrar(self):
         self.ui.salida.clear()
