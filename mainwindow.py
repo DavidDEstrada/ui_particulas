@@ -20,6 +20,7 @@ class MainWindow (QMainWindow):
         self.ui.actionGuardar.triggered.connect(self.action_guardar_archivo)
 
         self.ui.ver_grafos_action.triggered.connect(self.grafos)
+        self.ui.actionBusqueda.triggered.connect(self.busqueda_grafos)
 
         self.ui.actionId.triggered.connect(self.action_ordenar_id)
         self.ui.actionDistancia.triggered.connect(self.action_ordenar_distancia)
@@ -210,7 +211,6 @@ class MainWindow (QMainWindow):
     def click_mostrar(self):
         self.ui.salida.clear()
         self.ui.salida.insertPlainText(str(self.swarm))
-        
     @Slot()
     def click_agregar(self):
         iid = self.ui.id_spinBox.value()
@@ -242,3 +242,27 @@ class MainWindow (QMainWindow):
         self.swarm.agregar_inicio(particula)
 
    
+    @Slot()
+    def busqueda_grafos(self):
+
+        self.swarm.quitar_peso()
+        self.ui.salida.clear()
+
+        origen = (self.ui.origenx_spinBox.value() , self.ui.origeny_spinBox.value())
+        recorrido = self.swarm.algoritmo_busqueda_profundidad(origen)
+
+        print('Profundidad')
+
+        self.ui.salida.insertPlainText('Profundidad' + '\n')
+        for i in recorrido:
+            self.ui.salida.insertPlainText(str(i) + '\n')
+            print(i)
+
+        recorrido2 = self.swarm.algoritmo_busqueda_Amplitud(origen)
+
+        print('\n' + 'Amplitud')
+
+        self.ui.salida.insertPlainText('\n' + 'Amplitud' + '\n' )
+        for i in recorrido2:
+            self.ui.salida.insertPlainText(str(i) + '\n')
+            print(i)

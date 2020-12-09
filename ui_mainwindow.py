@@ -32,6 +32,8 @@ class Ui_MainWindow(object):
         self.ver_grafos_action.setObjectName(u"ver_grafos_action")
         self.actionGuardar_Grafos = QAction(MainWindow)
         self.actionGuardar_Grafos.setObjectName(u"actionGuardar_Grafos")
+        self.actionBusqueda = QAction(MainWindow)
+        self.actionBusqueda.setObjectName(u"actionBusqueda")
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.gridLayout_2 = QGridLayout(self.centralwidget)
@@ -234,6 +236,8 @@ class Ui_MainWindow(object):
         self.menuOrdenar_por.setObjectName(u"menuOrdenar_por")
         self.menuver = QMenu(self.menubar)
         self.menuver.setObjectName(u"menuver")
+        self.menuAlgoritmos = QMenu(self.menubar)
+        self.menuAlgoritmos.setObjectName(u"menuAlgoritmos")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QStatusBar(MainWindow)
         self.statusbar.setObjectName(u"statusbar")
@@ -242,12 +246,14 @@ class Ui_MainWindow(object):
         self.menubar.addAction(self.menuArchivo.menuAction())
         self.menubar.addAction(self.menuOrdenar_por.menuAction())
         self.menubar.addAction(self.menuver.menuAction())
+        self.menubar.addAction(self.menuAlgoritmos.menuAction())
         self.menuArchivo.addAction(self.actionAbrir)
         self.menuArchivo.addAction(self.actionGuardar)
         self.menuOrdenar_por.addAction(self.actionId)
         self.menuOrdenar_por.addAction(self.actionDistancia)
         self.menuOrdenar_por.addAction(self.actionVelocidad)
         self.menuver.addAction(self.ver_grafos_action)
+        self.menuAlgoritmos.addAction(self.actionBusqueda)
 
         self.retranslateUi(MainWindow)
 
@@ -275,6 +281,7 @@ class Ui_MainWindow(object):
         self.ver_grafos_action.setShortcut(QCoreApplication.translate("MainWindow", u"Ctrl+G", None))
 #endif // QT_CONFIG(shortcut)
         self.actionGuardar_Grafos.setText(QCoreApplication.translate("MainWindow", u"Guardar Grafos", None))
+        self.actionBusqueda.setText(QCoreApplication.translate("MainWindow", u"Busqueda en profundidad/amplitud", None))
         self.groupBox.setTitle(QCoreApplication.translate("MainWindow", u"Particula", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"Origen en y", None))
         self.label_5.setText(QCoreApplication.translate("MainWindow", u"Destino en y", None))
@@ -300,5 +307,6 @@ class Ui_MainWindow(object):
         self.menuArchivo.setTitle(QCoreApplication.translate("MainWindow", u"Archivo", None))
         self.menuOrdenar_por.setTitle(QCoreApplication.translate("MainWindow", u"Ordenar por", None))
         self.menuver.setTitle(QCoreApplication.translate("MainWindow", u"Ver", None))
+        self.menuAlgoritmos.setTitle(QCoreApplication.translate("MainWindow", u"Algoritmos", None))
     # retranslateUi
 

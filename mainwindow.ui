@@ -284,9 +284,16 @@
     </property>
     <addaction name="ver_grafos_action"/>
    </widget>
+   <widget class="QMenu" name="menuAlgoritmos">
+    <property name="title">
+     <string>Algoritmos</string>
+    </property>
+    <addaction name="actionBusqueda"/>
+   </widget>
    <addaction name="menuArchivo"/>
    <addaction name="menuOrdenar_por"/>
    <addaction name="menuver"/>
+   <addaction name="menuAlgoritmos"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionAbrir">
@@ -331,6 +338,11 @@
   <action name="actionGuardar_Grafos">
    <property name="text">
     <string>Guardar Grafos</string>
+   </property>
+  </action>
+  <action name="actionBusqueda">
+   <property name="text">
+    <string>Busqueda en profundidad/amplitud</string>
    </property>
   </action>
  </widget>

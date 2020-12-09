@@ -1,6 +1,7 @@
 from particula import Particula
 import json
 from pprint import pformat
+from collections import deque
 
 def ordenar_by_distancia(particula):
         return particula.distancia
@@ -94,3 +95,57 @@ class Swarm:
                 d = self.crear_grafo()
                 grafo = pformat(d, width=40, indent=1)
                 return grafo
+    
+    def quitar_peso(self):
+            d = self.crear_grafo()
+            d2 = d.copy()
+            for i in d:
+                d2[i] = [x[0] for x in d[i]]
+            return d2
+
+    def algoritmo_busqueda_profundidad(self,origen):
+
+            d2 = self.quitar_peso()
+            visitados = deque()
+            pila = deque()
+            recorrido = deque()
+
+            visitados.append(origen)
+            pila.append(origen)
+
+            while len(pila) > 0:
+                vertice = pila[-1]
+                recorrido.append(vertice)
+                pila.pop()  
+
+                adyacentes = d2[vertice]
+                for i in adyacentes:
+                    ady = i
+                    if ady not in visitados:
+                        visitados.append(ady)
+                        pila.append(ady)
+
+            return recorrido
+
+    def algoritmo_busqueda_Amplitud(self,origen):
+            d2 = self.quitar_peso()
+            visitados = deque()
+            cola = deque()
+            recorrido = deque()
+
+            visitados.append(origen)
+            cola.append(origen)
+
+            while len(cola) > 0:
+                vertice = cola[0]
+                recorrido.append(vertice)
+                del cola[0]
+
+                adyacentes = d2[vertice]
+                for i in adyacentes:
+                    ady = i
+                    if ady not in visitados:
+                        visitados.append(ady)
+                        cola.append(ady)    
+
+            return recorrido
